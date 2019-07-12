@@ -9,16 +9,18 @@ from registration.backends.default.views import ActivationView
 from jsonrpc import jsonrpc_site
 
 # from gnowsys_ndf.ndf.forms import *
-from gnowsys_ndf.settings import GSTUDIO_SITE_NAME,GSTUDIO_USERNAME_SELECTION_WIDGET, GSTUDIO_OER_GROUPS
+from gnowsys_ndf.settings import GSTUDIO_SITE_NAME,GSTUDIO_USERNAME_SELECTION_WIDGET
 from gnowsys_ndf.ndf.views.email_registration import password_reset_email, password_reset_error, GstudioEmailRegistrationForm
 from gnowsys_ndf.ndf.forms import UserChangeform, UserResetform
 from gnowsys_ndf.ndf.views.home import homepage, landing_page
 from gnowsys_ndf.ndf.views.methods import tag_info
 from gnowsys_ndf.ndf.views.custom_app_view import custom_app_view, custom_app_new_view
 from gnowsys_ndf.ndf.views import rpc_resources
+
+
 if GSTUDIO_SITE_NAME.lower() == 'clix':
     login_template = 'registration/login_clix.html'
-    logout_template = "ndf/landing_page_clix_oer.html"
+    logout_template = "ndf/landing_page_clix.html"
 else:
     login_template = 'registration/login.html'
     logout_template = 'registration/logout.html'
@@ -43,12 +45,14 @@ urlpatterns = patterns('',
 
     url(r'^$', homepage, {"group_id": "home"}, name="homepage"),
     url(r'^welcome/?', landing_page, name="landing_page"),
+    url(r'^home/?', landing_page, name="home"),
 
     url(r'^captcha/', include('captcha.urls')),
     (r'^', include('gnowsys_ndf.ndf.urls.captcha')),
 
     # all main apps
     (r'^(?P<group_id>[^/]+)/mailclient', include('gnowsys_ndf.ndf.urls.mailclient')),
+    (r'^(?P<group_id>[^/]+)/domain', include('gnowsys_ndf.ndf.urls.domain')),
     (r'^(?P<group_id>[^/]+)/analytics', include('gnowsys_ndf.ndf.urls.analytics')),
     (r'^(?P<group_id>[^/]+)/file', include('gnowsys_ndf.ndf.urls.file')),
     (r'^(?P<group_id>[^/]+)/jhapp', include('gnowsys_ndf.ndf.urls.jhapp')),
@@ -216,8 +220,8 @@ urlpatterns = patterns('',
 
     # url(r'^accounts/login/$', auth_views.login ,{'template_name': login_template}, name='login'),
     url(r'^accounts/login/$', auth_views.login ,{'template_name': login_template, 'extra_context': {'USERNAME_SELECTION_WIDGET': GSTUDIO_USERNAME_SELECTION_WIDGET}}, name='login'),
-    url(r'^accounts/logout/$', auth_views.logout ,{'template_name': logout_template }, name='logout'),
-    url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^accounts/logout/$', auth_views.logout ,{'template_name': logout_template}, name='logout'),
+    url(r'^accounts/', include('registration_email.backends.default.urls')),
 
    # --end of django-registration
 
@@ -225,9 +229,12 @@ urlpatterns = patterns('',
     # url(r'^Beta/', TemplateView.as_view(template_name= 'gstudio/beta.html'), name="beta"),
     url(r'^(?P<user_id>[\w-]+)/profile$', 'gnowsys_ndf.ndf.views.userDashboard.save_profile', name='save_user_profile'),
 
-)
+    url(r'^(?P<domain_name>[\w-]+)/modules',include('gnowsys_ndf.ndf.urls.domain'))
 
+)
+# print "in url init.py",settings.DEBUG
 if settings.DEBUG:
+    # print "static root",settings.STATIC_ROOT
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
@@ -236,16 +243,3 @@ if settings.DEBUG:
             'document_root': settings.STATIC_ROOT,
         }),
 )
-
-urlpatterns += patterns('gnowsys_ndf.ndf.views.es_queries',
-                        url(r'^(?P<group_id>[^/]+)/module/(?P<node_id>[\w-]+)/(?P<title>[^/]+)/?$', 'module_detail', name='module_detail'),
-                        url(r'^(?P<group_id>[^/]+)/course/save_course_page/$', 'save_course_page', name='save_course_page'),
-                        url(r'^(?P<group_id>[^/]+)/course/content/$', 'course_content', name='course_content'),
-                        url(r'^(?P<group_id>[^/]+)/course/activities/$', 'course_pages', name='course_pages'),
-                        url(r'^(?P<group_id>[^/]+)/course/activities/page-no=(?P<page_no>\d+)/$', 'course_pages', name='course_pages_paged'),
-                        url(r'^(?P<group_id>[^/]+)/course/activity/detail/(?P<page_id>[\w-]+)$', 'course_pages', name='view_course_page'),
-                        url(r'^(?P<group_id>[^/]+)/course/activity/create$', 'create_edit_course_page', name='create_course_page'),
-                        url(r'^(?P<group_id>[^/]+)/unit/lessons/$', 'unit_detail', name='unit_detail'),
-                        url(r'^(?P<group_id>[^/]+)/unit//lesson/create/?$', 'lesson_create_edit', name='lesson_create_edit'),
-                        url(r'^(?P<group_id>[^/]+)/ajax/get_group_resources/(?P<res_type>[\w-]+)$', 'get_group_resources', name='get_group_resources'),
-                       )
