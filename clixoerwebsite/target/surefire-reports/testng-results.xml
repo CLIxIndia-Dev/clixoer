@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="10" passed="10">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="53037" started-at="2020-08-01T09:08:04Z" finished-at="2020-08-01T09:08:57Z">
+    <groups>
+    </groups>
+    <test name="Test Sample" duration-ms="2" started-at="2020-08-01T09:08:04Z" finished-at="2020-08-01T09:08:04Z">
+    </test> <!-- Test Sample -->
+    <test name="TestHomepage" duration-ms="32880" started-at="2020-08-01T09:08:04Z" finished-at="2020-08-01T09:08:37Z">
+      <class name="com.clix.clixoerwebsite.HomePage">
+        <test-method status="PASS" signature="bringup()[pri:0, instance:com.clix.clixoerwebsite.HomePage@35b74c5c]" name="bringup" is-config="true" duration-ms="28032" started-at="2020-08-01T09:08:04Z" finished-at="2020-08-01T09:08:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bringup -->
+        <test-method status="PASS" signature="basePageNavigation()[pri:0, instance:com.clix.clixoerwebsite.HomePage@35b74c5c]" name="basePageNavigation" duration-ms="3494" started-at="2020-08-01T09:08:32Z" finished-at="2020-08-01T09:08:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- basePageNavigation -->
+        <test-method status="PASS" signature="checkEnglishContentChecked()[pri:0, instance:com.clix.clixoerwebsite.HomePage@35b74c5c]" name="checkEnglishContentChecked" duration-ms="978" started-at="2020-08-01T09:08:36Z" finished-at="2020-08-01T09:08:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkEnglishContentChecked -->
+        <test-method status="PASS" signature="countEnglishModules()[pri:0, instance:com.clix.clixoerwebsite.HomePage@35b74c5c]" name="countEnglishModules" duration-ms="133" started-at="2020-08-01T09:08:37Z" finished-at="2020-08-01T09:08:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- countEnglishModules -->
+        <test-method status="PASS" signature="countLinks()[pri:0, instance:com.clix.clixoerwebsite.HomePage@35b74c5c]" name="countLinks" duration-ms="25" started-at="2020-08-01T09:08:37Z" finished-at="2020-08-01T09:08:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- countLinks -->
+        <test-method status="PASS" signature="verifyEnglishmodulesinEnglishcheckbox()[pri:0, instance:com.clix.clixoerwebsite.HomePage@35b74c5c]" name="verifyEnglishmodulesinEnglishcheckbox" duration-ms="83" started-at="2020-08-01T09:08:37Z" finished-at="2020-08-01T09:08:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyEnglishmodulesinEnglishcheckbox -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.clix.clixoerwebsite.HomePage@35b74c5c]" name="teardown" is-config="true" duration-ms="111" started-at="2020-08-01T09:08:37Z" finished-at="2020-08-01T09:08:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.clix.clixoerwebsite.HomePage -->
+    </test> <!-- TestHomepage -->
+    <test name="TestHomepagemaths" duration-ms="19774" started-at="2020-08-01T09:08:38Z" finished-at="2020-08-01T09:08:57Z">
+      <class name="com.clix.clixoerwebsite.CheckMathsCheckboxContent">
+        <test-method status="PASS" signature="bringup()[pri:0, instance:com.clix.clixoerwebsite.CheckMathsCheckboxContent@1ebea008]" name="bringup" is-config="true" duration-ms="14921" started-at="2020-08-01T09:08:38Z" finished-at="2020-08-01T09:08:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bringup -->
+        <test-method status="PASS" signature="basePageNavigation()[pri:0, instance:com.clix.clixoerwebsite.CheckMathsCheckboxContent@1ebea008]" name="basePageNavigation" duration-ms="3469" started-at="2020-08-01T09:08:53Z" finished-at="2020-08-01T09:08:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- basePageNavigation -->
+        <test-method status="PASS" signature="checkMathsContentChecked()[pri:0, instance:com.clix.clixoerwebsite.CheckMathsCheckboxContent@1ebea008]" name="checkMathsContentChecked" duration-ms="1054" started-at="2020-08-01T09:08:56Z" finished-at="2020-08-01T09:08:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkMathsContentChecked -->
+        <test-method status="PASS" signature="countLinks()[pri:0, instance:com.clix.clixoerwebsite.CheckMathsCheckboxContent@1ebea008]" name="countLinks" duration-ms="21" started-at="2020-08-01T09:08:57Z" finished-at="2020-08-01T09:08:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- countLinks -->
+        <test-method status="PASS" signature="countMathsModules()[pri:0, instance:com.clix.clixoerwebsite.CheckMathsCheckboxContent@1ebea008]" name="countMathsModules" duration-ms="113" started-at="2020-08-01T09:08:57Z" finished-at="2020-08-01T09:08:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- countMathsModules -->
+        <test-method status="PASS" signature="verifyMathsmodulesinEnglishcheckbox()[pri:0, instance:com.clix.clixoerwebsite.CheckMathsCheckboxContent@1ebea008]" name="verifyMathsmodulesinEnglishcheckbox" duration-ms="80" started-at="2020-08-01T09:08:57Z" finished-at="2020-08-01T09:08:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyMathsmodulesinEnglishcheckbox -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.clix.clixoerwebsite.CheckMathsCheckboxContent@1ebea008]" name="teardown" is-config="true" duration-ms="112" started-at="2020-08-01T09:08:57Z" finished-at="2020-08-01T09:08:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.clix.clixoerwebsite.CheckMathsCheckboxContent -->
+    </test> <!-- TestHomepagemaths -->
+  </suite> <!-- Suite -->
+</testng-results>
